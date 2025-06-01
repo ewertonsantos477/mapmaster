@@ -1,0 +1,230 @@
+/* Estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #cceeff; /* Cor de fundo aproximada da imagem */
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: brightness(0.95);
+    position: relative;
+    height: 100vh;
+}
+
+/* Camada escura sobre o fundo do mapa para melhor contraste */
+.login-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2); /* Sutilmente escurece o fundo */
+    z-index: 0;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%; /* Ocupa mais largura em mobile */
+    max-width: 400px; /* Limita a largura em telas maiores */
+    position: relative; /* Para z-index sobre o pseudo-elemento */
+    z-index: 1;
+}
+
+h1 {
+    color: #2196f3; /* Cor azul do "MapMaster+" */
+    font-size: 2.8em;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+h2 { /* Estilo para o título "Cadastro" na página de cadastro */
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 25px;
+}
+
+/* Estilo para botões sociais */
+.social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    color: white; /* Cor do texto padrão para botões sociais */
+}
+
+.social-button i {
+    margin-right: 10px;
+    font-size: 1.3em;
+}
+
+.social-button.google {
+    background-color: #DB4437; /* Cor do Google */
+}
+
+.social-button.google:hover {
+    background-color: #c23321;
+    transform: translateY(-2px);
+}
+
+.social-button.facebook {
+    background-color: #4267B2; /* Cor do Facebook */
+}
+
+.social-button.facebook:hover {
+    background-color: #365899;
+    transform: translateY(-2px);
+}
+
+/* Divisor "OR" */
+.divider {
+    font-size: 0.9em;
+    color: #888;
+    margin: 25px 0;
+    position: relative;
+    text-align: center;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%; /* Ajuste a largura das linhas */
+    height: 1px;
+    background-color: #ddd;
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+/* Formulário de Login e Cadastro */
+#loginForm input[type="email"],
+#loginForm input[type="password"],
+#cadastroForm input[type="text"],
+#cadastroForm input[type="email"],
+#cadastroForm input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#loginForm input:focus,
+#cadastroForm input:focus {
+    border-color: #2196f3;
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
+}
+
+.btn-email-login {
+    background-color: #2196f3; /* Cor azul primária */
+    color: white;
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn-email-login:hover {
+    background-color: #1976d2;
+    transform: translateY(-2px);
+}
+
+/* Links adicionais e Botão de Cadastro */
+.links-adicionais {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column; /* Para empilhar os links/botões */
+    gap: 10px; /* Espaço entre os links/botões */
+    align-items: center; /* Centraliza os itens horizontalmente */
+}
+
+.links-adicionais a {
+    color: #2196f3;
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+.links-adicionais a:hover {
+    color: #1976d2;
+    text-decoration: underline;
+}
+
+/* Estilo para o botão/link de Cadastro */
+.btn-cadastro {
+    display: block; /* Faz com que o link ocupe toda a largura disponível */
+    width: 100%; /* Garante que ocupe a largura total do container */
+    padding: 12px 20px;
+    /* margin-top: 15px; /* Já configurado pelo gap do flexbox */
+    border: 1px solid #28a745; /* Cor da borda verde */
+    background-color: #28a745; /* Cor de fundo verde */
+    color: white; /* Cor do texto */
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    text-decoration: none; /* Remove sublinhado padrão do link */
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn-cadastro:hover {
+    background-color: #218838; /* Verde mais escuro no hover */
+    border-color: #1e7e34;
+    transform: translateY(-2px);
+}
+
+
+/* Responsividade para telas muito pequenas, se necessário */
+@media (max-width: 380px) {
+    .login-container {
+        padding: 30px 20px;
+    }
+    h1 {
+        font-size: 2.2em;
+        margin-bottom: 25px;
+    }
+    .social-button, .btn-email-login, .btn-cadastro {
+        font-size: 1em;
+        padding: 10px 15px;
+    }
+}
